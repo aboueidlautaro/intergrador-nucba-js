@@ -13,40 +13,37 @@ const dollarBarContainer = document.querySelector(".dollarBar__container")
 const featureNewsContainer = document.querySelector(".featureNews__container")
 const newsContainer = document.querySelector(".news__container")
 
-const btnSearch = document.querySelector("#btnSearch")
+// Retiré la búsqueda por input porque no estaba funcionando, ÚNICAMENTE FUNCIONA EN FIREFOX (donde yo trabajo).
 
-btnSearch.addEventListener("click", () => {
-  window.location.reload()
-  window.localStorage.removeItem("categorySelected")
-})
+// const btnSearch = document.querySelector("#btnSearch")
 
-let input = document.getElementById("inputSearch")
-let inputValue = document.getElementById("inputSearch").value
+// btnSearch.addEventListener("click", () => {
+//   window.location.reload()
+//   window.localStorage.removeItem("categorySelected")
+// })
 
-input.addEventListener("keypress", function () {
-  inputValue = document.getElementById("inputSearch").value
-})
+// let input = document.getElementById("inputSearch").value
 
 let categorySelected = parseInt(window.localStorage.getItem("categorySelected"))
 
 let results = []
 
-if (categorySelected > 0 && inputValue.length < 1) {
+if (categorySelected > 0 /*&& input.length < 1*/) {
   results = NEWS.filter((_new) => _new.categoryId === categorySelected)
-} else if (inputValue != "") {
+} /*else if (input != "") {
   results = NEWS.filter((_new) =>
     _new.text_content
       .toLowerCase()
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .includes(
-        inputValue
+        input
           .toLocaleLowerCase()
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g, "")
       )
   )
-} else {
+}*/ else {
   results = NEWS
 }
 

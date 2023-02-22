@@ -130,6 +130,7 @@ button[type="submit"]:hover {
   width: 100%;
   overflow: hidden;
   background-color: rgba(0, 203, 182, 0.25);
+  margin-bottom: 20px;
 }
 
 .dollarBar__container {
@@ -198,7 +199,7 @@ button[type="submit"]:hover {
   color: var(--decrease);
 }
 
-.searchNav {
+/* .searchNav {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -228,7 +229,7 @@ button[type="submit"]:hover {
   background-repeat: no-repeat;
   background-position: 25% 50%;
   background-size: 15px;
-}
+} */
 
 .left__container,
 .right__container {
@@ -239,6 +240,8 @@ button[type="submit"]:hover {
 .left__container {
   grid-column-start: 1;
   grid-column-end: 10;
+  grid-row-start: 1;
+  grid-row-end: 12;
 }
 
 .right__container {
@@ -328,11 +331,11 @@ button[type="submit"]:hover {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 90%;
-  height: auto;
+  height: 100%;
   row-gap: 30px;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: calc(100vh - 200px);
+  max-height: 100%;
 }
 
 .news__card {
