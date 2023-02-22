@@ -9,6 +9,11 @@
   .news__container {
     justify-content: center;
   }
+  .left__container {
+    grid-column-start: 2;
+    grid-column-end: 8;
+    grid-row-start: 1;
+  }
   .right__container {
     grid-column-start: 8;
     grid-column-end: 11;
