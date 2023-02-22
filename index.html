@@ -14,39 +14,59 @@
     <header>
       <div class="header__container">
         <div class="header__container--left">
-          <button><i class="fa-sharp fa-solid fa-bars"></i></button>
+          <button id="btnMenu">
+            <i class="fa-sharp fa-solid fa-bars"></i>
+          </button>
         </div>
         <div class="header__container--center">
           <h2>INFSA</h2>
         </div>
         <div class="header__container--right">
-          <button class="btn--secondary">Registrarse</button>
-          <button class="btn--primary">Ingresar</button>
+          <a href="/assets/pages/register.html" class="btn--secondary">
+            Registrarse</a
+          >
+          <a href="/assets/pages/login.html" class="btn--primary"> Ingresar</a>
         </div>
       </div>
     </header>
+
     <div class="dollarBar">
       <div class="dollarBar__container"></div>
     </div>
     <div class="searchNav">
-      <input class="inputSearch" type="text" placeholder="Buscar" />
+      <input
+        id="inputSearch"
+        name="inputSearch"
+        class="inputSearch"
+        type="text"
+        placeholder="Buscar"
+      />
+      <button id="btnSearch">🔍</button>
     </div>
 
     <main>
-      <div class="left__container"></div>
+      <div class="sideBar__container">
+        <ul class="sideBar__content">
+          <li id="1" class="item">Política</li>
+          <li id="2" class="item">Economía</li>
+          <li id="3" class="item">Mundo</li>
+          <li id="4" class="item">Deportes</li>
+          <li id="5" class="item">Gastronomía</li>
+          <li id="6" class="item">Tecnología</li>
+          <li id="7" class="item">Espectáculo</li>
+        </ul>
+      </div>
+      <div class="left__container">
+        <div class="news__container"></div>
+      </div>
       <div class="right__container">
         <div class="featureNews__wraper">
-          <div class="featureNews__container">
-            <div class="slider">
-              <h3>Noticias Destacadas</h3>
-              <img
-                src="https://www.lanacion.com.ar/resizer/3gZEeT4W3-KpmVMrEjjy-r6lTnA=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/RE5YFEFKINF2ZCWVC5WU7XW6QE.JPG"
-              />
-            </div>
-          </div>
+          <h3>Noticias destacadas</h3>
+          <div class="featureNews__container"></div>
         </div>
       </div>
     </main>
+
     <footer></footer>
   </body>
   <script

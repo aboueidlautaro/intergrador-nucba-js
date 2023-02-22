@@ -1,5 +1,6 @@
 :root {
   --primary: #00cbb6;
+  --dollarBar: #bff2ed;
   --secondary: #d6f7f4;
   --black: #000;
   --black-secondary: #535353;
@@ -29,6 +30,7 @@ header {
   width: 100%;
   background-color: var(--primary);
   height: 70px;
+  z-index: 10000;
 }
 
 main {
@@ -36,10 +38,16 @@ main {
   margin: auto;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 100px);
 }
 
-button {
+li {
+  list-style: none;
+}
+
+a {
   border: none;
+  text-decoration: none;
   padding: 10px 25px;
   border-radius: 4px;
   font-family: "Segoe UI Bold";
@@ -47,9 +55,40 @@ button {
   cursor: pointer;
   font-weight: 900;
 }
-button:hover {
+a:hover {
   filter: invert(1);
   transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  filter: invert(1);
+  transition: all 0.3s ease-in-out;
+}
+
+button,
+button[type="submit"] {
+  border: none;
+  padding: 10px 25px;
+  border-radius: 4px;
+  font-family: "Segoe UI Bold";
+  transition: filter 0.3s ease-in-out;
+  cursor: pointer;
+  font-weight: 900;
+  transition: all 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.16);
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.error--msg {
+  text-align: center;
+  margin: auto;
+  font-size: 1.3rem;
+  font-family: "Segoe UI Bold";
+  color: var(--black-secondary);
 }
 
 .header__container {
@@ -60,11 +99,12 @@ button:hover {
   height: 100%;
   color: var(--white);
   margin: auto;
-  font-family: "Segoe UI Bold";
 }
 
-.header__container--center {
-  font-size: 32px;
+.header__container--center h2 {
+  font-size: 50px;
+  font-family: "Segoe UI Bold";
+  font-weight: 900;
 }
 
 .btn--primary {
@@ -84,8 +124,11 @@ button:hover {
 }
 
 .dollarBar {
+  position: relative;
+  margin: auto;
   height: 35px;
   width: 100%;
+  overflow: hidden;
   background-color: rgba(0, 203, 182, 0.25);
 }
 
@@ -94,8 +137,42 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  max-width: 1400px;
+
   margin: auto;
+  z-index: 1000;
+}
+
+.dollarBar::before,
+.dollarBar::after {
+  background: linear-gradient(
+    to right,
+    var(--dollarBar) 0%,
+    rgba(0, 203, 182, 0) 100%
+  );
+  content: "";
+  height: 35px;
+  position: absolute;
+  width: 500px;
+  z-index: 2;
+}
+.dollarBar::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+.dollarBar::before {
+  left: 0;
+  top: 0;
+}
+.dollarBar .dollarBar__container {
+  -webkit-animation: scroll 10s linear infinite;
+  animation: scroll 10s linear infinite;
+  display: flex;
+  width: calc(200px * 12);
+}
+.dollarBar .dollarInfo {
+  height: 35px;
+  width: 200px;
 }
 
 .dollarInfo {
@@ -104,7 +181,7 @@ button:hover {
   align-items: center;
   font-family: "Poppins", sans-serif;
   font-size: 13px;
-  gap: 6px;
+  gap: 10px;
 }
 
 .dollarInfo span {
@@ -128,6 +205,7 @@ button:hover {
   align-items: center;
   height: 60px;
   font-family: "";
+  gap: 15px;
 }
 
 .inputSearch {
@@ -155,58 +233,230 @@ button:hover {
 .left__container,
 .right__container {
   place-content: center;
-  padding: 20px;
+  margin-top: 30px;
 }
 
 .left__container {
   grid-column-start: 1;
-  grid-column-end: 9;
+  grid-column-end: 10;
 }
 
 .right__container {
-  grid-column-start: 9;
+  grid-column-start: 10;
   grid-column-end: 13;
 }
 
 .featureNews__wraper {
   position: relative;
-  max-width: calc(100vw - 4rem);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.16);
+  width: 350px;
+  border-radius: 8px;
 }
 
 .featureNews__container {
   position: relative;
-  width: 350px;
-  height: 390px;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.32);
+  display: flex;
+  height: 330px;
+  width: 320px;
+  margin-top: 10px;
 }
 
 .featureNews__container .slider {
   margin: auto;
-  display: flex;
-  position: relative;
-  width: fit-content;
+  display: none;
   height: auto;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.featureNews__wraper h3 {
+  text-align: center;
+  font-family: "poppins", sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  padding-top: 10px;
+  color: var(--black-secondary);
 }
 
 .featureNews__container .slider img {
   width: 320px;
   height: auto;
-  object-fit: contain;
+  max-height: 190px;
+  object-fit: cover;
   border-radius: 8px;
 }
 
-.featureNews__container .slider h3 {
-  text-align: center;
+.new--title {
+  color: var(--primary-dark);
+  display: inline-block;
+  font-weight: 500;
+  font-size: 17px;
+  font-family: "poppins", sans-serif;
+}
+
+.featureNews__container .slider p {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: "poppins", sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  line-clamp: 3;
+  max-width: 310px;
+  max-height: 100px;
+}
+
+.text__container {
+  padding: 0 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.slider:nth-child(1) {
+  display: flex;
+}
+
+.news__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 90%;
+  height: auto;
+  row-gap: 30px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: calc(100vh - 200px);
+}
+
+.news__card {
+  width: 400px;
+  height: auto;
+}
+.news__card img {
+  width: 400px;
+  border-radius: 4px;
+}
+
+.newsCard__content span,
+p {
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+}
+
+.author__content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.author__content img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.author__content h3 {
+  font-family: "poppins", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--primary-dark);
+}
+
+.sideBar__container {
+  display: none;
+  width: 200px;
+  height: auto;
+  min-height: 100px;
+  background-color: var(--primary);
+  position: absolute;
+  z-index: 10000;
+  top: 70px;
+  transition: all 0.5s ease;
+  border-radius: 0 0 10px 10px;
+  padding: 10px;
+  box-shadow: 2px 15px 15px rgba(0, 0, 0, 0.3);
+}
+
+.sideBar__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  gap: 15px;
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 800;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sideBar__content li {
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  transition: all 0.5s ease;
+}
+
+.sideBar__content li:hover {
+  cursor: pointer;
+  background-color: var(--primary-dark);
+}
+
+.accountContainer {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  display: flex;
+  grid-row-start: 3;
+  margin: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+  padding: 20px;
+}
+
+.accountContainer__form--title {
   font-family: "poppins", sans-serif;
   font-weight: 800;
-  font-size: 18px;
-  color: var(--black-secondary);
-  padding: 10px 0px;
+  font-size: 20px;
+  color: var(--black);
+}
+
+.accountContainer__form--input {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accountContainer__form--input input {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--primary-dark);
+  border-radius: 5px;
+  padding: 0 10px;
+  font-family: "poppins", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--black);
+}
+
+.accountContainer__form--input input:focus {
+  outline: 1px solid var(--primary-dark);
 }

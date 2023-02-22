@@ -1,0 +1,118 @@
+@media (max-width: 1430px) {
+  .right__container {
+    grid-column-start: 9;
+    grid-column-end: 12;
+  }
+}
+
+@media (max-width: 1185px) {
+  .news__container {
+    justify-content: center;
+  }
+  .right__container {
+    grid-column-start: 8;
+    grid-column-end: 11;
+  }
+}
+
+@media (max-width: 850px) {
+  .left__container {
+    grid-column-start: 2;
+    grid-column-end: 13;
+    grid-row-start: 5;
+  }
+  .right__container {
+    margin: auto;
+    grid-column-start: 1;
+    grid-column-end: 13;
+  }
+}
+
+@media (max-width: 390px) {
+  .featureNews__wraper {
+    width: 300px;
+  }
+  .featureNews__container {
+    height: 330px;
+    width: 300px;
+  }
+  .featureNews__container .slider img {
+    width: 270px;
+    height: auto;
+    margin: auto;
+    max-height: 190px;
+    margin: 10px;
+  }
+  .new--title {
+    font-size: 15px;
+  }
+  .featureNews__container .slider p {
+    font-size: 14px;
+    max-width: 300px;
+    max-height: 150px;
+  }
+  .news__container {
+    width: 90%;
+    max-height: calc(100vh - 70px);
+  }
+  .news__card {
+    width: 260px;
+  }
+  .news__card img {
+    width: 260px;
+  }
+  .author__content img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 520px) {
+  header {
+    height: 160px;
+  }
+  .header__container--left > button {
+    font-size: 20px;
+    padding: 0px 8px;
+  }
+  .header__container--center h2 {
+    font-size: 36px;
+  }
+  .header__container {
+    padding-top: 20px;
+    max-width: 90%;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 75%;
+    gap: 10px;
+  }
+  .sideBar__container {
+    top: 120px;
+  }
+  .dollarBar {
+    height: 35px;
+    width: 100%;
+    background-color: rgba(0, 203, 182, 0.25);
+  }
+  .dollarBar::before,
+  .dollarBar::after {
+    background: linear-gradient(
+      to right,
+      var(--dollarBar) 0%,
+      rgba(0, 203, 182, 0) 100%
+    );
+    content: "";
+    height: 35px;
+    position: absolute;
+    width: 100px;
+    z-index: 2;
+  }
+  .accountContainer {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    display: flex;
+    justify-content: center;
+    grid-row-start: 2;
+    margin: auto;
+  }
+}
